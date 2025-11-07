@@ -1,14 +1,18 @@
 /* Common Classes */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
+
 :root {
   --primary-color: #03a6a6;
   --secondary-color: black;
+  --tertiary-color: white;
 }
+
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -26,17 +30,21 @@ img {
   width: 100%;
   object-fit: cover;
 }
+
 ul {
   list-style: none;
 }
+
 a {
   text-decoration: none;
   display: inline-block;
   color: black;
 }
-.active > a {
+
+.active>a {
   color: var(--primary-color);
 }
+
 .primary-btn {
   text-transform: capitalize;
   font-weight: 400;
@@ -47,6 +55,7 @@ a {
   position: relative;
   overflow: hidden;
 }
+
 .primary-btn::after {
   content: "";
   background-color: var(--primary-color);
@@ -56,18 +65,54 @@ a {
   top: 0;
   left: 0;
   bottom: 0;
-  transition: all 1s linear;
+  transition: all 0.5s linear;
 }
-.primary-btn > span {
+
+.primary-btn:hover::after {
+  width: 100%;
+}
+
+.primary-btn>span {
   position: relative;
   z-index: 2;
   transition: 1s linear;
 }
-.primary-btn:hover > span{
-    color: white;
+
+.primary-btn:hover>span {
+  color: white;
 }
-.primary-btn:hover::after {
-  width: 100%;
+
+.title-1 {
+  text-transform: capitalize;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.title-2 {
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 1;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 -15px;
+}
+
+.col-6 {
+  width: 50%;
+  padding: 0 15px;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: calc(30/16);
+  letter-spacing: 6.4px;
 }
 
 /*===============
@@ -77,6 +122,7 @@ Navbar
 .navbar-sec {
   padding: 25px 0 20px;
 }
+
 nav,
 .navbar-collapsed,
 .nav-links,
@@ -84,38 +130,48 @@ nav,
   display: flex;
   align-items: center;
 }
+
 .navbar-collapsed {
   margin-left: auto;
   font-size: 15px;
 }
+
 .nav-logo {
   width: 218px;
 }
+
 .nav-link {
   margin-right: 36px;
 }
-.nav-link > a {
+
+.nav-link>a {
   transition: 0.5s linear;
 }
-.nav-link > a:hover {
+
+.nav-link>a:hover {
   color: var(--primary-color);
 }
-.sm-nav-btns{
-    display: none;
+
+.sm-nav-btns {
+  display: none;
 }
+
 .navbtn-1 {
   display: flex;
   align-items: center;
   margin-right: 36px;
 }
+
 .nav-icon {
   width: 20.95px;
   height: 20px;
   margin-right: 9.05px;
 }
-.nav-icon + span {
+
+.nav-icon+span {
   font-weight: 600;
 }
+
 .navbar-sec .primary-btn {
   font-weight: 500;
   border: 2px solid black;
@@ -126,12 +182,12 @@ Navbar Responsive
 ==================== */
 
 @media screen and (max-width: 1200px) {
-  .navbar-collapsed{
+  .navbar-collapsed {
     position: fixed;
     right: -100%;
     top: 0;
     transition: 1s linear;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     height: 100vh;
     justify-content: center;
     align-items: center;
@@ -139,47 +195,153 @@ Navbar Responsive
     backdrop-filter: blur(50px);
     z-index: 2;
   }
-  .menu-bar > span{
+
+  .menu-bar>span {
     display: block;
     width: 30px;
     height: 2px;
     background: var(--secondary-color);
   }
-  .menu-bar > span:nth-child(2){
+
+  .menu-bar>span:nth-child(2) {
     margin: 5px 0;
   }
-  #menu:checked ~ .navbar-collapsed{
-   right: 0;
+
+  #menu:checked~.navbar-collapsed {
+    right: 0;
   }
-  .navbar-collapsed, .nav-links{
+
+  .navbar-collapsed,
+  .nav-links {
     flex-direction: column;
   }
-  .nav-link{
+
+  .nav-link {
     margin-right: 0;
     margin-bottom: 20px;
   }
-  #menu:checked ~ .menu-bar > span:nth-child(1){
+
+  #menu:checked~.menu-bar>span:nth-child(1) {
     display: none;
     transition: 0.5s linear;
   }
-  #menu:checked ~ .menu-bar > span:nth-child(2){
+
+  #menu:checked~.menu-bar>span:nth-child(2) {
     transform: rotate(-45deg);
     transition: 0.5s linear;
   }
-  #menu:checked ~ .menu-bar > span:nth-child(3){
-   transform: rotate(45deg);
-   transition: 0.5s linear;
+
+  #menu:checked~.menu-bar>span:nth-child(3) {
+    transform: rotate(45deg);
+    transition: 0.5s linear;
   }
-  .menu-bar{
+
+  .menu-bar {
     margin-left: 20px;
     position: relative;
     z-index: 99;
   }
-  .nav-btns{
+
+  .nav-btns {
     display: none;
   }
-  .sm-nav-btns{
+
+  .sm-nav-btns {
     display: flex !important;
     margin-left: auto;
   }
+}
+
+/*===============
+Banner Section
+=================*/
+
+.banner-sec {
+  min-height: 100vh;
+  background: url('./assests/banner-bg.gif') no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  color: var(--tertiary-color);
+}
+
+.banner-sec .title-1 {
+  max-width: 581px;
+}
+
+.banner-sec p {
+  max-width: 597px;
+  margin: 26px 0 36px;
+  line-height: calc(24 / 16);
+  font-style: italic;
+}
+
+.banner-btns .primary-btn:first-child {
+  background: var(--tertiary-color);
+  color: var(--secondary-color);
+  margin-right: 16px;
+}
+
+.banner-btns .primary-btn:nth-child(2) {
+  border: 1px solid var(--tertiary-color);
+  color: var(--tertiary-color);
+}
+
+.banner-btns .primary-btn:nth-child(2):hover>span {
+  color: black;
+}
+
+/*================
+Support Section
+===================*/
+
+.support-sec {
+  color: var(--secondary-color);
+  padding: 122px 0 120px;
+}
+
+.support-img {
+  max-width: 745px;
+}
+
+.support-sec .title-2 {
+  max-width: 581px;
+  margin: 15px 0 31px;
+}
+
+.support-sec .card {
+  max-width: 497px;
+}
+
+.support-sec p {
+  margin-bottom: 33px;
+  line-height: calc(24 / 16);
+}
+
+/*====================
+Who We Sre Section
+======================*/
+
+.who-we-are-sec {
+  padding: 282px 0;
+  color: white;
+  background: url(./assests/who-we-are-bg.png) no-repeat center/cover;
+  border-radius: 0 0 11.979vw 11.979vw;
+}
+
+.who-we-are-sec .title-2 {
+  max-width: 404px;
+  margin: 15px 0 31px;
+}
+
+.who-we-are-sec p {
+  max-width: 496px;
+  line-height: calc(24 / 16);
+  margin-bottom: 33px;
+}
+.who-we-are-sec .primary-btn{
+  color: white;
+  border: 1px solid white;
+}
+.who-we-are-sec .primary-btn:hover > span {
+  color: black;
 }
