@@ -41,7 +41,7 @@ a {
   color: black;
 }
 
-.active>a {
+.active > a {
   color: var(--primary-color);
 }
 
@@ -72,13 +72,13 @@ a {
   width: 100%;
 }
 
-.primary-btn>span {
+.primary-btn > span {
   position: relative;
   z-index: 2;
   transition: 1s linear;
 }
 
-.primary-btn:hover>span {
+.primary-btn:hover > span {
   color: white;
 }
 
@@ -108,10 +108,15 @@ a {
   padding: 0 15px;
 }
 
+.col-50 {
+  width: 50%;
+  padding: 0 15px;
+}
+
 .subtitle {
   text-transform: uppercase;
   font-weight: 400;
-  line-height: calc(30/16);
+  line-height: calc(30 / 16);
   letter-spacing: 6.4px;
 }
 
@@ -144,15 +149,16 @@ nav,
   margin-right: 36px;
 }
 
-.nav-link>a {
+.nav-link > a {
   transition: 0.5s linear;
 }
 
-.nav-link>a:hover {
+.nav-link > a:hover {
   color: var(--primary-color);
 }
 
-.sm-nav-btns {
+.sm-nav-btns,
+.sm-nav-btns-2 {
   display: none;
 }
 
@@ -161,15 +167,18 @@ nav,
   align-items: center;
   margin-right: 36px;
 }
+.navbtn-1 > span {
+  font-weight: 600;
+  transition: 0.5s linear;
+}
+.navbtn-1:hover > span {
+  color: var(--primary-color);
+}
 
 .nav-icon {
   width: 20.95px;
   height: 20px;
   margin-right: 9.05px;
-}
-
-.nav-icon+span {
-  font-weight: 600;
 }
 
 .navbar-sec .primary-btn {
@@ -182,66 +191,15 @@ Navbar Responsive
 ==================== */
 
 @media screen and (max-width: 1200px) {
-  .navbar-collapsed {
-    position: fixed;
-    right: -100%;
-    top: 0;
-    transition: 1s linear;
-    background: rgba(0, 0, 0, 0.5);
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    backdrop-filter: blur(50px);
-    z-index: 2;
-  }
-
-  .menu-bar>span {
-    display: block;
-    width: 30px;
-    height: 2px;
-    background: var(--secondary-color);
-  }
-
-  .menu-bar>span:nth-child(2) {
-    margin: 5px 0;
-  }
-
-  #menu:checked~.navbar-collapsed {
-    right: 0;
-  }
-
   .navbar-collapsed,
   .nav-links {
     flex-direction: column;
   }
-
   .nav-link {
     margin-right: 0;
     margin-bottom: 20px;
+    font-size: 24px;
   }
-
-  #menu:checked~.menu-bar>span:nth-child(1) {
-    display: none;
-    transition: 0.5s linear;
-  }
-
-  #menu:checked~.menu-bar>span:nth-child(2) {
-    transform: rotate(-45deg);
-    transition: 0.5s linear;
-  }
-
-  #menu:checked~.menu-bar>span:nth-child(3) {
-    transform: rotate(45deg);
-    transition: 0.5s linear;
-  }
-
-  .menu-bar {
-    margin-left: 20px;
-    position: relative;
-    z-index: 99;
-  }
-
   .nav-btns {
     display: none;
   }
@@ -249,6 +207,119 @@ Navbar Responsive
   .sm-nav-btns {
     display: flex !important;
     margin-left: auto;
+  }
+  .navbar-collapsed {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    transition: 0.5s linear;
+    background: rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    backdrop-filter: blur(30px);
+    z-index: 3;
+  }
+
+  #menu:checked ~ .navbar-collapsed {
+    right: 0;
+  }
+  .menu-bar {
+    margin-left: 20px;
+    position: relative;
+    z-index: 99;
+  }
+  .menu-bar > span {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: 0.5s linear;
+  }
+
+  .menu-bar::before {
+    content: "";
+    height: 2px;
+    background: var(--secondary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: 0.5s linear;
+  }
+  .menu-bar::after {
+    content: "";
+    height: 2px;
+    background: var(--secondary-color);
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    transition: 0.5s linear;
+  }
+
+  #menu:checked ~ .menu-bar > span {
+    transform: rotate(-45deg) translateX(8px);
+    background: var(--tertiary-color);
+  }
+  #menu:checked ~ .menu-bar::before {
+    transform: rotate(45deg) translateX(8px);
+    background: var(--tertiary-color);
+  }
+  #menu:checked ~ .menu-bar::after {
+    transform: translateX(50px);
+    background: var(--tertiary-color);
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar-sec {
+    padding: 10px 0 10px;
+  }
+  .nav-logo {
+    width: 160px;
+  }
+  .navbar-sec .primary-btn {
+    border: 1px solid black;
+    padding: 15px 17px 15px;
+  }
+  .sm-nav-btns {
+    display: none !important;
+  }
+  .sm-nav-btns-2 {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .sm-nav-btns-2 > .nav-btn-1 {
+    margin-right: 10px;
+    transition: 0.5s linear;
+  }
+  .sm-nav-btns-2 > .nav-btn-1:hover {
+    color: var(--primary-color);
+  }
+  .nav-link {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .menu-bar::after {
+    bottom: 10.5px;
+  }
+  .nav-logo {
+    width: 140px;
+  }
+  .navbar-sec .primary-btn {
+    padding: 10px 12px 10px;
+  }
+  .menu-bar > span {
+    width: 25px;
+  }
+  .menu-bar {
+    margin-left: 10px;
+  }
+  .nav-link {
+    font-size: 16px;
   }
 }
 
@@ -258,7 +329,7 @@ Banner Section
 
 .banner-sec {
   min-height: 100vh;
-  background: url('./assests/banner-bg.gif') no-repeat center/cover;
+  background: url("./assests/banner-bg.gif") no-repeat center/cover;
   display: flex;
   align-items: center;
   color: var(--tertiary-color);
@@ -274,11 +345,15 @@ Banner Section
   line-height: calc(24 / 16);
   font-style: italic;
 }
+.banner-btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
 .banner-btns .primary-btn:first-child {
   background: var(--tertiary-color);
   color: var(--secondary-color);
-  margin-right: 16px;
 }
 
 .banner-btns .primary-btn:nth-child(2) {
@@ -286,8 +361,33 @@ Banner Section
   color: var(--tertiary-color);
 }
 
-.banner-btns .primary-btn:nth-child(2):hover>span {
+.banner-btns .primary-btn:nth-child(2):hover > span {
   color: black;
+}
+
+/* ================
+Banner Responsive
+=================== */
+@media screen and (max-width: 768px) {
+  .title-1 {
+    font-size: 55px;
+  }
+}
+@media screen and (max-width: 576px) {
+  body {
+    font-size: 12px;
+  }
+  .title-1 {
+    font-size: 40px;
+  }
+  .primary-btn {
+    font-size: 12px;
+    padding: 15px 20px 15px;
+  }
+  .banner-btns {
+    flex-direction: column;
+    align-items: start;
+  }
 }
 
 /*================
@@ -297,10 +397,24 @@ Support Section
 .support-sec {
   color: var(--secondary-color);
   padding: 122px 0 120px;
+  background: linear-gradient(to bottom, white, #edeaff);
+}
+.support-img::after {
+  content: "";
+  height: 335px;
+  width: 335px;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(500px);
+  z-index: -1;
 }
 
 .support-img {
   max-width: 745px;
+  position: relative;
 }
 
 .support-sec .title-2 {
@@ -317,15 +431,61 @@ Support Section
   line-height: calc(24 / 16);
 }
 
+/* =====================
+Support Sec Responsive
+========================= */
+
+@media screen and (max-width: 1200px) {
+  .title-2 {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .support-sec {
+    padding: 70px 0;
+  }
+  .support-sec .row {
+    gap: 35px;
+  }
+  .support-sec .col-6 {
+    width: 100%;
+  }
+  .support-img {
+    max-width: 600px;
+    margin: auto;
+  }
+  .support-sec .card {
+    margin: auto;
+  }
+}
+@media screen and (max-width: 576px) {
+  .title-2 {
+    font-size: 30px;
+  }
+}
+
 /*====================
 Who We Sre Section
 ======================*/
 
 .who-we-are-sec {
   padding: 282px 0;
-  color: white;
+  color: var(--tertiary-color);
   background: url(./assests/who-we-are-bg.png) no-repeat center/cover;
   border-radius: 0 0 11.979vw 11.979vw;
+  position: relative;
+}
+.who-we-are-sec::after {
+  content: "";
+  height: 335px;
+  width: 335px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(500px);
+  z-index: -1;
 }
 
 .who-we-are-sec .title-2 {
@@ -338,10 +498,136 @@ Who We Sre Section
   line-height: calc(24 / 16);
   margin-bottom: 33px;
 }
-.who-we-are-sec .primary-btn{
+.who-we-are-sec .primary-btn {
   color: white;
   border: 1px solid white;
 }
 .who-we-are-sec .primary-btn:hover > span {
   color: black;
+}
+
+/* ====================
+Who We are Sec Responive
+======================= */
+
+@media screen and (max-width: 992px) {
+  .who-we-are-sec {
+    padding: 165px 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .who-we-are-sec {
+    padding: 110px 0;
+  }
+}
+
+.box {
+  height: 30vh;
+}
+
+/*================
+Video Section
+=================*/
+
+.video-sec {
+  padding: 100px 0 120px;
+  color: var(--secondary-color);
+  text-align: center;
+}
+.video-sec p {
+  max-width: 835px;
+  margin: 28px auto 46px;
+}
+.video-sec .video-box {
+  max-width: 1212px;
+  margin: auto;
+}
+video {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+}
+
+/*=======================
+Video Section Responsive
+=========================*/
+
+@media screen and (max-width: 576px) {
+  .video-sec {
+    padding: 70px 0;
+  }
+}
+
+/*============================
+Ceburu Features Section
+=========================== */
+
+.ceburu-features-sec {
+  padding: 120px 0 149px;
+  color: var(--secondary-color);
+  position: relative;
+}
+.ceburu-features-sec::before {
+  content: "";
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.features-img {
+  max-width: 745px;
+  border-radius: 30px;
+}
+.ceburu-features-sec .card {
+  max-width: 508px;
+}
+.ceburu-features-sec .title-2 {
+  margin: 15px 0 26px;
+}
+.ceburu-features-sec p {
+  max-width: 496px;
+}
+.ceburu-features-sec .tick-icon {
+  width: 22px;
+  height: 23px;
+}
+.ceburu-features-sec .col-6 .row {
+  align-items: normal;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+.ceburu-features-sec li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.ceburu-features-sec ul > li {
+  margin-bottom: 17px;
+}
+.ceburu-features-sec ul > li:last-child {
+  margin-bottom: 0;
+}
+
+/* =================================
+Ceburu Features Section Responsive
+===================================== */
+
+@media screen and (max-width: 992px) {
+  .col-6 {
+    width: 100%;
+  }
+  .features-img {
+    max-width: 600px;
+    margin: auto;
+  }
+  .ceburu-features-sec .card {
+    margin: 35px auto 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .ceburu-features-sec {
+    padding: 70px 0;
+  }
 }
