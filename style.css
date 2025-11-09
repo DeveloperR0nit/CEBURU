@@ -75,7 +75,7 @@ a {
 .primary-btn > span {
   position: relative;
   z-index: 2;
-  transition: 1s linear;
+  transition: 0.5s linear;
 }
 
 .primary-btn:hover > span {
