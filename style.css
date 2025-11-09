@@ -801,7 +801,7 @@ Footer Responsive
   }
   .logo-wrappr {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   .footer-links,
   .footer-socials-btns {
@@ -809,6 +809,7 @@ Footer Responsive
   }
   .footer-links {
     flex-direction: column;
+    margin: 0;
   }
   .footer-links > li {
     margin-right: 0;
@@ -845,13 +846,13 @@ Footer Responsive
     margin-bottom: 30px;
   }
   .footer-middle-part {
-    padding: 50px 0 40px;
+    padding: 40px 0;
+  }
+  .logo-wrappr {
+    margin-bottom: 25px;
   }
   .footer-logo {
     width: 210px;
-  }
-  .footer-links {
-    margin: 10px 0 0 0;
   }
   .footer-links {
     font-size: 12px;
