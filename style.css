@@ -103,6 +103,11 @@ a {
   margin: 0 -15px;
 }
 
+.col-2 {
+  width: calc(8.33% * 2);
+  padding: 0 15px;
+}
+
 .col-6 {
   width: 50%;
   padding: 0 15px;
@@ -233,7 +238,7 @@ Navbar Responsive
   .menu-bar > span {
     display: inline-block;
     width: 30px;
-    height: 2px;
+    height: 2.5px;
     background: var(--secondary-color);
     transition: 0.5s linear;
   }
@@ -283,6 +288,23 @@ Navbar Responsive
     border: 1px solid black;
     padding: 15px 17px 15px;
   }
+  .primary-btn {
+    letter-spacing: 0;
+  }
+  .navbtn-1 {
+    margin-right: 20px;
+  }
+  .nav-link {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .nav-logo {
+    width: 140px;
+  }
+  .nav-link {
+    font-size: 16px;
+  }
   .sm-nav-btns {
     display: none !important;
   }
@@ -298,13 +320,11 @@ Navbar Responsive
   .sm-nav-btns-2 > .nav-btn-1:hover {
     color: var(--primary-color);
   }
-  .nav-link {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 576px) {
   .menu-bar::after {
     bottom: 10.5px;
+  }
+  .menu-bar {
+    margin-left: 10px;
   }
   #menu:checked ~ .menu-bar::before {
     transform: rotate(35deg) translateX(8px);
@@ -312,20 +332,11 @@ Navbar Responsive
   #menu:checked ~ .menu-bar > span {
     transform: rotate(-35deg) translateX(8px);
   }
-  .nav-logo {
-    width: 140px;
-  }
   .navbar-sec .primary-btn {
     padding: 10px 12px 10px;
   }
   .menu-bar > span {
     width: 25px;
-  }
-  .menu-bar {
-    margin-left: 10px;
-  }
-  .nav-link {
-    font-size: 16px;
   }
 }
 
@@ -389,10 +400,6 @@ Banner Responsive
   .primary-btn {
     font-size: 12px;
     padding: 15px 20px 15px;
-  }
-  .banner-btns {
-    flex-direction: column;
-    align-items: start;
   }
 }
 
@@ -646,6 +653,74 @@ Ceburu Features Section Responsive
   }
 }
 
+/* ======================
+Clients Section
+========================= */
+
+.clients-sec {
+  padding: 136px 0 75px;
+  position: relative;
+}
+.clients-sec::before {
+  content: "";
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.clients-sec .subtitle {
+  text-align: center;
+  margin-bottom: 50.5px;
+}
+.client-logo {
+  height: 75px;
+}
+.client-logo > img {
+  object-fit: contain;
+}
+
+/* ======================
+Clients Section Responsive
+========================= */
+@media screen and (max-width: 1200px) {
+  .clients-sec {
+    padding: 100px 0 75px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .clients-sec .col-2 {
+    width: 33.33%;
+  }
+  .clients-sec .col-2:nth-child(1),
+  .clients-sec .col-2:nth-child(2),
+  .clients-sec .col-2:nth-child(3) {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .clients-sec {
+    padding: 70px 0;
+  }
+  .clients-sec .subtitle {
+    margin-bottom: 25px;
+  }
+  .clients-sec .col-2 {
+    width: 50%;
+  }
+  .clients-sec .col-2:nth-child(1),
+  .clients-sec .col-2:nth-child(2),
+  .clients-sec .col-2:nth-child(3),
+  .clients-sec .col-2:nth-child(4) {
+    margin-bottom: 30px;
+  }
+  .client-logo {
+    max-width: 110px;
+    margin: auto;
+  }
+}
+
 /* ================
 Footer Section
 =================== */
@@ -653,7 +728,7 @@ Footer Section
 .footer-sec {
   padding-top: 78px;
   border-radius: 7.813vw 7.813vw 0 0;
-  background: rgb(236, 236, 236);
+  box-shadow: 0px -49px 60px #edeaff;
 }
 .footer-top-part {
   display: flex;
@@ -852,7 +927,7 @@ Footer Responsive
     margin-bottom: 25px;
   }
   .footer-logo {
-    width: 210px;
+    width: 200px;
   }
   .footer-links {
     font-size: 12px;
