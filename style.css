@@ -94,6 +94,13 @@ a {
   font-weight: 500;
   font-size: 60px;
   line-height: 1;
+  margin-top: 15px;
+  margin-bottom: 31px;
+}
+.title-desc {
+  font-weight: 300;
+  margin-bottom: 33px;
+  line-height: calc(24 / 16);
 }
 
 .row {
@@ -120,7 +127,7 @@ a {
 
 .subtitle {
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 300;
   line-height: calc(30 / 16);
   letter-spacing: 6.4px;
 }
@@ -131,7 +138,7 @@ Navbar
 
 .navbar-sec {
   padding: 25px 0 20px;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -230,7 +237,7 @@ Navbar Responsive
     align-items: center;
     width: 60%;
     backdrop-filter: blur(30px);
-    z-index: 3;
+    z-index: 4;
   }
 
   #menu:checked ~ .navbar-collapsed {
@@ -361,6 +368,9 @@ Banner Section
   position: relative;
 }
 
+.banner-sec .banner-wrapr {
+  padding-top: 117px;
+}
 .banner-sec video {
   position: absolute;
   inset: 0;
@@ -406,6 +416,9 @@ Banner Responsive
   .title-1 {
     font-size: 55px;
   }
+  .banner-sec .banner-wrapr {
+    padding-top: 76px;
+  }
 }
 @media screen and (max-width: 576px) {
   body {
@@ -417,6 +430,9 @@ Banner Responsive
   .primary-btn {
     font-size: 12px;
     padding: 15px 20px 15px;
+  }
+  .banner-sec .banner-wrapr {
+    padding-top: 60px;
   }
 }
 
@@ -447,18 +463,8 @@ Support Section
   position: relative;
 }
 
-.support-sec .title-2 {
-  max-width: 581px;
-  margin: 15px 0 31px;
-}
-
 .support-sec .card {
   max-width: 497px;
-}
-
-.support-sec p {
-  margin-bottom: 33px;
-  line-height: calc(24 / 16);
 }
 
 /* =====================
@@ -511,26 +517,23 @@ Who We Sre Section
 }
 .who-we-are-sec::after {
   content: "";
-  height: 17.448vw;
-  width: 17.448vw;
+  height: 335.35px;
+  width: 335.35px;
   background-color: var(--primary-color);
   position: absolute;
-  bottom: -5%;
+  bottom: -10%;
   left: 50%;
   transform: translateX(-50%);
-  filter: blur(500px);
+  filter: blur(200px);
   z-index: -1;
 }
 
 .who-we-are-sec .title-2 {
   max-width: 404px;
-  margin: 15px 0 31px;
 }
 
-.who-we-are-sec p {
+.who-we-are-sec .title-desc {
   max-width: 496px;
-  line-height: calc(24 / 16);
-  margin-bottom: 33px;
 }
 .who-we-are-sec .primary-btn {
   color: white;
@@ -555,10 +558,6 @@ Who We are Sec Responive
   }
 }
 
-.box {
-  height: 30vh;
-}
-
 /*================
 Video Section
 =================*/
@@ -568,9 +567,9 @@ Video Section
   color: var(--secondary-color);
   text-align: center;
 }
-.video-sec p {
+.video-sec .title-desc {
   max-width: 835px;
-  margin: 28px auto 46px;
+  margin: 0 auto 33px;
 }
 .video-sec .video-box {
   max-width: 1212px;
@@ -620,6 +619,184 @@ Video Section Responsive
   }
 }
 
+/* ========================
+Testimonials Section
+=========================== */
+
+.testimonials-sec {
+  padding: 132px 0;
+  background: url("./assests/testimonials-bg.png") no-repeat center/cover;
+  border-radius: 0 0 11.458vw 11.458vw;
+  color: var(--tertiary-color);
+  position: relative;
+}
+.testimonials-sec::after {
+  content: "";
+  height: 335.35px;
+  width: 335.35px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(200px);
+  z-index: -1;
+}
+.testimonials-desc {
+  margin: auto;
+  text-align: center;
+  max-width: 893px;
+}
+.testimonials-desc .title-desc {
+  max-width: 743px;
+  margin: 0 auto 17px;
+}
+.testimonials-sec .slider-card {
+  padding: 35.61px 53px 70px 26px;
+  border-radius: 43.49px;
+  background: rgba(255, 255, 255, 5%);
+  border: 1px solid rgba(255, 255, 255, 10%);
+  backdrop-filter: blur(31.91px);
+  box-shadow: 19.15px 12.76px 319.1px rgba(0, 0, 0, 26%);
+  position: relative;
+  min-height: 425px;
+  margin: 40px 20px;
+}
+.testimonials-sec .card-heading {
+  display: flex;
+  align-items: center;
+}
+.testimonials-sec .card-heading > img {
+  height: 62.54px;
+  width: 62.54px;
+  margin-right: 19.15px;
+  border-radius: 50%;
+}
+.testimonials-sec .person-name {
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+.testimonials-sec .card-desc {
+  font-weight: 300;
+  max-width: 382px;
+  margin-top: 26.25px;
+  line-height: calc(25 / 16);
+}
+.testimonials-sec .float-qu {
+  width: 77.86px;
+  height: 77.86px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  right: 50.99px;
+  border: 1px solid rgba(255, 255, 255, 10%);
+  background: #4c609f;
+}
+.testimonials-sec .float-qu > img {
+  height: 35.74px;
+  width: 42.12px;
+}
+.slick-prev {
+  left: 0;
+  z-index: 3;
+  height: 61.27px;
+  width: 61.27px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.slick-prev::before {
+  content: "";
+  height: 100%;
+  width: 23px;
+  background: url("./assests/slider-right-arrow.png") no-repeat center/contain;
+  display: inline-block;
+}
+.slick-next {
+  right: 0;
+  z-index: 3;
+  height: 61.27px;
+  width: 61.27px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.slick-next::before {
+  content: "";
+  height: 100%;
+  width: 23px;
+  background: url("./assests/slider-right-arrow.png") no-repeat center/contain;
+  display: inline-block;
+}
+
+/* ========================
+Testimonials Section Responsive
+=========================== */
+@media screen and (max-width: 1440px) {
+  .testimonials-sec .slider-card {
+    margin: 40px 10px;
+  }
+  .testimonials-sec .float-qu {
+    right: 10px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .testimonials-sec .slider-card {
+    padding: 25px 20px;
+  }
+  .testimonials-sec .person-name {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .testimonials-sec .slider-card {
+    min-height: 400px;
+  }
+  .testimonials-sec .card-desc {
+    max-width: 425px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .testimonials-sec {
+    padding: 70px 0;
+  }
+  .testimonials-sec .slider-card {
+    min-height: 360px;
+  }
+  .testimonials-sec .card-heading > img {
+    height: 50px;
+    width: 50px;
+  }
+  .testimonials-sec .person-name {
+    font-size: 17px;
+  }
+  .testimonials-sec .float-qu {
+    width: 50px;
+    height: 50px;
+  }
+  .testimonials-sec .float-qu > img {
+    height: unset;
+    width: 28px;
+  }
+  .slick-next {
+    height: 50px;
+    width: 50px;
+    top: 96%;
+    right: 50%;
+    transform: translateX(65px);
+  }
+  .slick-prev {
+    height: 50px;
+    width: 50px;
+    top: 96%;
+    left: 50%;
+    transform: translateX(-65px);
+  }
+}
+
 /*============================
 Ceburu Features Section
 =========================== */
@@ -628,15 +805,6 @@ Ceburu Features Section
   padding: 120px 0 149px;
   color: var(--secondary-color);
   position: relative;
-}
-.ceburu-features-sec::before {
-  content: "";
-  height: 1px;
-  background-color: black;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
 }
 .features-img {
   max-width: 745px;
