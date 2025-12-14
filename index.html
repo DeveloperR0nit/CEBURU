@@ -96,6 +96,109 @@
         </div>
       </div>
     </section>
+    <section class="ceburu-ovr-sec">
+      <div class="container">
+        <div class="ceburu-ovr-wrapper">
+          <div class="subtitle">Lorem Ipsum</div>
+          <h2 class="title-2">Ceburu Overview</h2>
+          <p class="title-desc">
+            A comprehensive all-in-one IT management platform designed to
+            streamline and optimize your IT operations. With powerful features
+            and advanced capabilities, Ceburu empowers businesses to efficiently
+            manage their IT infrastructure, enhance performance, and ensure the
+            security of their systems. Explore our main categories below to
+            discover how Ceburu can revolutionize your IT management.
+          </p>
+          <!-- slider -->
+        </div>
+      </div>
+      <div class="overview-slider">
+        <div>
+          <div class="overview-card">
+            <img src="./assests/overview-img-1.png" alt="" />
+            <div class="overview-content">
+              <h3>Performance Monitoring</h3>
+              <p>
+                Optimize the performance of your IT infrastructure with Ceburu's
+                comprehensive performance monitoring capabilities. Monitor
+                network performance, database performance, and system metrics in
+                real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="overview-card">
+            <img src="./assests/overview-img-2.png" alt="" />
+            <div class="overview-content">
+              <h3>AI Monitoring</h3>
+              <p>
+                Optimize the performance of your IT infrastructure with Ceburu's
+                comprehensive performance monitoring capabilities. Monitor
+                network performance, database performance, and system metrics in
+                real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="overview-card">
+            <img src="./assests/overview-img-3.png" alt="" />
+            <div class="overview-content">
+              <h3>Remote Connect</h3>
+              <p>
+                Optimize the performance of your IT infrastructure with Ceburu's
+                comprehensive performance monitoring capabilities. Monitor
+                network performance, database performance, and system metrics in
+                real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="overview-card">
+            <img src="./assests/overview-img-1.png" alt="" />
+            <div class="overview-content">
+              <h3>Performance Monitoring</h3>
+              <p>
+                Optimize the performance of your IT infrastructure with Ceburu's
+                comprehensive performance monitoring capabilities. Monitor
+                network performance, database performance, and system metrics in
+                real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="overview-card">
+            <img src="./assests/overview-img-2.png" alt="" />
+            <div class="overview-content">
+              <h3>AI Monitoring</h3>
+              <p>
+                Optimize the performance of your IT infrastructure with Ceburu's
+                comprehensive performance monitoring capabilities. Monitor
+                network performance, database performance, and system metrics in
+                real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="overview-card">
+            <img src="./assests/overview-img-3.png" alt="" />
+            <div class="overview-content">
+              <h3>Remote Connect</h3>
+              <p>
+                Optimize the performance of your IT infrastructure with Ceburu's
+                comprehensive performance monitoring capabilities. Monitor
+                network performance, database performance, and system metrics in
+                real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="support-sec">
       <div class="container">
         <div class="row">
@@ -523,23 +626,37 @@
               breakpoint: 1440,
               settings: {
                 slidesToShow: 2,
-                slidesToScroll: 1,
-                centerMode: true,
               },
             },
             {
               breakpoint: 768,
               settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1,
-                centerMode: true,
               },
             },
             {
               breakpoint: 576,
               settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1,
+              },
+            },
+          ],
+        });
+        $(".overview-slider").slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 2,
+              },
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
               },
             },
           ],

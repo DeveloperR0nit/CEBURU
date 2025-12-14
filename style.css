@@ -436,13 +436,172 @@ Banner Responsive
   }
 }
 
+/* ===========================
+Ceburu Ovr Section
+============================ */
+
+.ceburu-ovr-sec {
+  padding: 120px 0 60px;
+}
+.ceburu-ovr-wrapper {
+  text-align: center;
+}
+.ceburu-ovr-sec .title-desc {
+  max-width: 893px;
+  margin: 0 auto 33px;
+}
+.overview-card {
+  height: 809px;
+  position: relative;
+  cursor: pointer;
+}
+
+.overview-card::before {
+  content: "";
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    transparent,
+    transparent,
+    transparent
+  );
+  position: absolute;
+  inset: 0;
+  transition: 0.3s linear;
+}
+.overview-card::after {
+  content: "";
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+  position: absolute;
+  inset: 0;
+  transition: 0.3s linear;
+  opacity: 0;
+}
+
+.overview-card:hover::before {
+  opacity: 0;
+}
+.overview-card:hover::after {
+  opacity: 1;
+}
+.overview-content {
+  position: absolute;
+  top: 93%;
+  left: 0;
+  color: var(--tertiary-color);
+  padding: 0 50px;
+  z-index: 2;
+  transition: 0.3s linear;
+  bottom: auto;
+}
+.overview-card:hover .overview-content {
+  top: 71%;
+}
+.overview-content h3 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
+.overview-content p {
+  font-weight: 300;
+  line-height: calc(25 / 16);
+  max-width: 513.43px;
+  text-transform: capitalize;
+}
+.ceburu-ovr-sec .slick-next {
+  width: 80px;
+  height: 55px;
+  background-color: var(--primary-color);
+  right: 0;
+  z-index: 50;
+  border-radius: 50px 0 0 50px;
+}
+.ceburu-ovr-sec .slick-prev {
+  width: 80px;
+  height: 55px;
+  background-color: var(--primary-color);
+  left: 0;
+  z-index: 50;
+  border-radius: 0 50px 50px 0;
+}
+.ceburu-ovr-sec .slick-prev::before,
+.ceburu-ovr-sec .slick-next::before {
+  content: "";
+  background: url("./assests/overview-slider-btn-arrow.png") no-repeat
+    center/contain;
+  width: 9px;
+  height: 16px;
+  display: inline-block;
+}
+.ceburu-ovr-sec .slick-next::before {
+  transform: rotate(180deg);
+}
+
+/*==============================
+Ceburu Overview Section Responsive
+================================*/
+
+@media screen and (max-width: 1400px) {
+  .overview-content {
+    padding: 0 15px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .overview-content h3 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .overview-card {
+    height: 500px;
+  }
+  .overview-content {
+    top: 89%;
+  }
+  .overview-card:hover .overview-content {
+    top: 62%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .ceburu-ovr-sec {
+    padding: 70px 0;
+  }
+  .overview-card {
+    height: 400px;
+  }
+  .overview-content h3 {
+    font-size: 22px;
+  }
+  .overview-content p {
+    max-width: 400px;
+  }
+  .overview-card:hover .overview-content {
+    top: 58%;
+  }
+  .ceburu-ovr-sec .slick-next,
+  .ceburu-ovr-sec .slick-prev {
+    width: 40px;
+    height: 32px;
+  }
+  .ceburu-ovr-sec .slick-prev::before,
+  .ceburu-ovr-sec .slick-next::before {
+    width: 6px;
+  }
+}
+
 /*================
 Support Section
 ===================*/
 
 .support-sec {
   color: var(--secondary-color);
-  padding: 122px 0 120px;
+  padding: 60px 0 120px;
   background: linear-gradient(to bottom, white, #edeaff);
 }
 .support-img::after {
@@ -497,6 +656,8 @@ Support Sec Responsive
 @media screen and (max-width: 576px) {
   .title-2 {
     font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
   .support-img::after {
     width: 52vw;
@@ -657,7 +818,6 @@ Testimonials Section
   background: rgba(255, 255, 255, 5%);
   border: 1px solid rgba(255, 255, 255, 10%);
   backdrop-filter: blur(31.91px);
-  box-shadow: 19.15px 12.76px 319.1px rgba(0, 0, 0, 26%);
   position: relative;
   min-height: 425px;
   margin: 40px 20px;
@@ -679,7 +839,7 @@ Testimonials Section
 }
 .testimonials-sec .card-desc {
   font-weight: 300;
-  max-width: 382px;
+  max-width: 450px;
   margin-top: 26.25px;
   line-height: calc(25 / 16);
 }
@@ -701,30 +861,31 @@ Testimonials Section
   height: 35.74px;
   width: 42.12px;
 }
-.slick-prev {
-  left: 0;
+.testimonials-sec .slick-prev {
+  left: -10px;
   z-index: 3;
   height: 61.27px;
   width: 61.27px;
   border-radius: 50%;
   border: 1px solid white;
 }
-.slick-prev::before {
+.testimonials-sec .testimonials-sec .slick-prev::before {
   content: "";
   height: 100%;
   width: 23px;
   background: url("./assests/slider-right-arrow.png") no-repeat center/contain;
   display: inline-block;
+  transform: rotate(180deg);
 }
-.slick-next {
-  right: 0;
+.testimonials-sec .testimonials-sec .slick-next {
+  right: -10px;
   z-index: 3;
   height: 61.27px;
   width: 61.27px;
   border-radius: 50%;
   border: 1px solid white;
 }
-.slick-next::before {
+.testimonials-sec .testimonials-sec .slick-next::before {
   content: "";
   height: 100%;
   width: 23px;
@@ -753,10 +914,21 @@ Testimonials Section Responsive
 }
 @media screen and (max-width: 768px) {
   .testimonials-sec .slider-card {
-    min-height: 400px;
+    min-height: 375px;
   }
-  .testimonials-sec .card-desc {
-    max-width: 425px;
+  .testimonials-sec .slick-next {
+    height: 50px;
+    width: 50px;
+    top: 96%;
+    right: 50%;
+    transform: translateX(65px);
+  }
+  .testimonials-sec .slick-prev {
+    height: 50px;
+    width: 50px;
+    top: 96%;
+    left: 50%;
+    transform: translateX(-65px);
   }
 }
 @media screen and (max-width: 576px) {
@@ -780,20 +952,6 @@ Testimonials Section Responsive
   .testimonials-sec .float-qu > img {
     height: unset;
     width: 28px;
-  }
-  .slick-next {
-    height: 50px;
-    width: 50px;
-    top: 96%;
-    right: 50%;
-    transform: translateX(65px);
-  }
-  .slick-prev {
-    height: 50px;
-    width: 50px;
-    top: 96%;
-    left: 50%;
-    transform: translateX(-65px);
   }
 }
 
